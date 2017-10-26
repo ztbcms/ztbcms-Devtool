@@ -6,9 +6,7 @@
 
 namespace Devtool\Service;
 
-use System\Service\BaseService;
-
-class BehaviorBuilderService extends BaseService {
+class BehaviorBuilderService extends DevtoolService {
 
 
     static function createBehavior($name, $description){
@@ -40,21 +38,5 @@ class BehaviorBuilderService extends BaseService {
         return self::createReturn(true, null, '操作成功');
     }
 
-    private static function getSystemModulePath(){
-        return APP_PATH . 'System' .DIRECTORY_SEPARATOR;
-    }
-
-    static function fetchContent($templateFile, $vars = []){
-        $content = '';
-        if(!empty($templateFile) && file_exists($templateFile) && is_file($templateFile)){
-            $content = file_get_contents($templateFile);
-            foreach ($vars as $key => $val){
-                $pattern = '/{{' . $key. '}}/i';
-                $content = preg_replace($pattern, $val, $content);
-            }
-        }
-
-        return $content;
-    }
 
 }
