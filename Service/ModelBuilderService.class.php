@@ -12,10 +12,10 @@ class ModelBuilderService extends DevtoolService {
      * @param        $model_id
      * @param string $name 表名，首字母大写
      * @param string $tableName
-     * @param string $description
+     * @param bool   $force_create 是否强制生成
      * @return array
      */
-    static function createModel($model_id, $name = '', $tableName = '', $description = '') {
+    static function createModel($model_id, $name = '', $tableName = '', $force_create = false) {
         $model = M('model')->where(['modelid' => $model_id])->find();
         //, 'disabled' => 0
         $model_fields = M('modelField')->where(['modelid' => $model_id])->order('listorder ASC')->select();
@@ -28,9 +28,7 @@ class ModelBuilderService extends DevtoolService {
             $tableName = $model['tablename'];
         }
 
-        if (empty($description)) {
-            $description = $model['name'];
-        }
+        //筛选出没有禁用的字段
         $enable_fields = [];
         foreach ($model_fields as $index => $field) {
             if ($field['disabled'] == 0) {
@@ -39,8 +37,9 @@ class ModelBuilderService extends DevtoolService {
         }
 
         $vars = [
+            'model_title' => $model['name'],
+            'model_description' => $model['description'],
             'name' => $name,
-            'description' => $description,
             'tableName' => $tableName,
             'enable_fields' => join(',', $enable_fields)
         ];
@@ -49,7 +48,7 @@ class ModelBuilderService extends DevtoolService {
 
         $targetFile = self::getSystemModulePath() . 'Model' . DIRECTORY_SEPARATOR . $name . 'Model.class.php';
 
-        if (!file_exists($targetFile)) {
+        if ($force_create || !file_exists($targetFile)) {
             $content = self::fetchContent($templateFile, $vars);
             file_put_contents($targetFile, $content);
         } else {

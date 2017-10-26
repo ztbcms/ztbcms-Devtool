@@ -9,9 +9,9 @@ namespace System\Model;
 use Common\Model\RelationModel;
 
 /**
- * {{table_title}}
+ * {{model_title}}
  *
- * {{table_description}}
+ * {{model_description}}
  */
 class {{name}}Model extends RelationModel {
 

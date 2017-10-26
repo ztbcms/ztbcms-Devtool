@@ -17,7 +17,7 @@ class TestController extends Base {
 
 //        BehaviorBuilderService::createBehavior('UserFuck', '用户XX');
 
-        ModelBuilderService::createModel(1001);
+        ModelBuilderService::createModel(1001,'', '', true);
     }
 
 }
