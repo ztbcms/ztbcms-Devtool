@@ -8,6 +8,12 @@ namespace Devtool\Service;
 
 class ServiceBuilerService extends DevtoolService {
 
+    /**
+     * @param      $service_title
+     * @param      $model_name
+     * @param bool $force_create 是否强制生成
+     * @return array
+     */
     static function createService($service_title, $model_name, $force_create = false){
         $templateFile_behavior = APP_PATH . 'Devtool' . DIRECTORY_SEPARATOR . 'Data' . DIRECTORY_SEPARATOR . 'Service' . DIRECTORY_SEPARATOR . 'TplService.tpl';
 

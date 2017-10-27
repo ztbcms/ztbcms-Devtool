@@ -9,6 +9,8 @@ namespace Devtool\Controller;
 use Common\Controller\Base;
 use Devtool\Service\BehaviorBuilderService;
 use Devtool\Service\ModelBuilderService;
+use Devtool\Service\ServiceBuilerService;
+use System\Service\BaseService;
 
 class TestController extends Base {
 
@@ -17,7 +19,12 @@ class TestController extends Base {
 
 //        BehaviorBuilderService::createBehavior('UserFuck', '用户XX');
 
-        ModelBuilderService::createModel(1001,'', '', true);
+//        ModelBuilderService::createModel(1001,'', '', true);
+//        $res = BaseService::find('Shop/Apply', ['id' => 1]);
+
+        $res = ServiceBuilerService::createService('申请', 'Apply', true);
+
+        var_dump($res);
     }
 
 }

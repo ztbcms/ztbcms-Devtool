@@ -36,7 +36,9 @@
                                                 <td class="text-left">{$model['tablename']}</td>
                                                 <td class="text-left">
                                                     <a href="{:U('Devtool/Model/createModel', ['modelid' => $model['modelid']])}"
-                                                       class="btn btn-primary">生成Model</a>
+                                                       class="btn btn-primary">生成 Model</a>
+                                                    <a href="{:U('Devtool/Service/createServiceByModel', ['modelid' => $model['modelid']])}"
+                                                       class="btn btn-primary">生成 Service</a>
                                                 </td>
                                             </tr>
                                         </volist>
