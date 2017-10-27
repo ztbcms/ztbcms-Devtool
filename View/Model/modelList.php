@@ -31,11 +31,11 @@
                                     <tbody>
                                         <volist name="models" id="model">
                                             <tr>
-                                                <td class="text-left">{$model[modelid]}</td>
-                                                <td class="text-left">{$model[name]}</td>
-                                                <td class="text-left">{$model[tablename]}</td>
+                                                <td class="text-left">{$model['modelid']}</td>
+                                                <td class="text-left">{$model['name']}</td>
+                                                <td class="text-left">{$model['tablename']}</td>
                                                 <td class="text-left">
-                                                    <a href="javascript:void(0);"
+                                                    <a href="{:U('Devtool/Model/createModel', ['modelid' => $model['modelid']])}"
                                                        class="btn btn-primary">生成Model</a>
                                                 </td>
                                             </tr>

@@ -23,7 +23,13 @@ return array(
                 "name" => "创建行为",
                 "remark" => ""
             ),
-
+            array(
+                "route" => "Devtool/Model/modelList",
+                "type" => 1,
+                "status" => 1,
+                "name" => "模型",
+                "remark" => ""
+            ),
         ),
     ),
 );

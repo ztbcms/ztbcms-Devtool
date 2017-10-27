@@ -17,7 +17,6 @@ class ModelBuilderService extends DevtoolService {
      */
     static function createModel($model_id, $name = '', $tableName = '', $force_create = false) {
         $model = M('model')->where(['modelid' => $model_id])->find();
-        //, 'disabled' => 0
         $model_fields = M('modelField')->where(['modelid' => $model_id])->order('listorder ASC')->select();
 
         if (empty($name)) {
