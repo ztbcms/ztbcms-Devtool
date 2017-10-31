@@ -18,7 +18,7 @@ class DevtoolService extends BaseService {
      * @return string
      */
     protected static function getSystemModulePath(){
-        return APP_PATH . 'System' .DIRECTORY_SEPARATOR;
+        return APP_PATH . 'System' . DIRECTORY_SEPARATOR;
     }
 
     /**

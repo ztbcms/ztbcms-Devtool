@@ -10,6 +10,9 @@ use Common\Controller\Base;
 use Devtool\Service\BehaviorBuilderService;
 use Devtool\Service\ModelBuilderService;
 use Devtool\Service\ServiceBuilerService;
+use Devtool\Service\ServicePreviewService;
+use PhpParser\Error;
+use PhpParser\ParserFactory;
 use System\Service\BaseService;
 
 class TestController extends Base {
@@ -25,9 +28,20 @@ class TestController extends Base {
 //        $res = ServiceBuilerService::createService('申请', 'Apply', true);
 
 //        var_dump($res);
+//
+//        $res = ModelBuilderService::fixTablename('apply_user_ruby_on');
+//        var_dump($res);
 
-        $res = ModelBuilderService::fixTablename('apply_user_ruby_on');
-        var_dump($res);
+//        $file =  __DIR__ . '/BehaviorController.class.php';
+//
+//        $res = ServicePreviewService::parserClassFile($file);
+//        dump($res);
+
+        $res = ServicePreviewService::getSystemService();
+        dump($res);
+
+
     }
+
 
 }

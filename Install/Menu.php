@@ -30,6 +30,13 @@ return array(
                 "name" => "模型",
                 "remark" => ""
             ),
+            array(
+                "route" => "Devtool/ServicePreview/serviceList",
+                "type" => 1,
+                "status" => 1,
+                "name" => "Service管理",
+                "remark" => ""
+            ),
         ),
     ),
 );

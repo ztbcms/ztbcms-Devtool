@@ -9,9 +9,8 @@ namespace Devtool\Service;
 use PhpParser\Error;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\ParserFactory;
-use Shop\Service\BaseService;
 
-class ServicePreviewService extends BaseService {
+class ServicePreviewService extends DevtoolService {
 
     /**
      * 解析 类文件
@@ -34,7 +33,10 @@ class ServicePreviewService extends BaseService {
         try {
             $stmts = $parser->parse($code);
             // $stmts is an array of statement nodes
-            $class = $stmts[0]->stmts[1];
+            $class = self::getClass($stmts[0]->stmts);
+            if(empty($class)){
+                return self::createReturn(false, null, 'php文件中没有类定义');
+            }
             $result['class_name'] = $class->name;
             //类的说明
             if ($class->getAttributes() && $class->getAttributes()['comments'] && count($class->getAttributes()['comments'])) {
@@ -62,6 +64,22 @@ class ServicePreviewService extends BaseService {
         } catch (Error $e) {
             return self::createReturn(false, null, '解析异常');
         }
+    }
+
+    /**
+     * 获取 \PhpParser\Node\Stmt\Class_ 对象
+     *
+     * @param array $stmts
+     * @return mixed|null
+     */
+    private static function getClass($stmts = []){
+        foreach ($stmts as $index => $item){
+            if ($item instanceof \PhpParser\Node\Stmt\Class_){
+                return $item;
+            }
+        }
+
+        return null;
     }
 
     /**
@@ -101,6 +119,25 @@ class ServicePreviewService extends BaseService {
         $result['description'] = (string)$docblock->getDescription();
 
         return $result;
+    }
+
+    /**
+     * 获取系统服务列表
+     */
+    static function getSystemService(){
+        $service_dir = self::getSystemModulePath() . 'Service' . DIRECTORY_SEPARATOR ;
+        $service_files = glob($service_dir . '*Service.class.php');
+
+        $result = [];
+        foreach ($service_files as $index => $file){
+            $res = self::parserClassFile($file);
+            if($res['status']){
+                $res['data']['file'] = $file;
+                $result[] = $res['data'];
+            }
+        }
+
+        return self::createReturn(true, $result);
     }
 
 }
