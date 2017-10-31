@@ -9,6 +9,8 @@ namespace Devtool\Service;
 class ModelBuilderService extends DevtoolService {
 
     /**
+     * 创建模型
+     *
      * @param        $model_id
      * @param string $name 表名，首字母大写
      * @param string $tableName
@@ -55,6 +57,23 @@ class ModelBuilderService extends DevtoolService {
         }
 
         return self::createReturn(true, null, '操作成功');
+    }
+
+    /**
+     * 根据表名修正为驼峰式命名
+     *
+     * @param $tablename
+     * @return string
+     */
+    static function fixTablename($tablename){
+        $names = explode('_',$tablename);
+
+        foreach ($names as $index => $name){
+            $names[$index] = ucfirst($name);
+        }
+
+        return implode('', $names);
+
     }
 
 }

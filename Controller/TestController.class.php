@@ -22,8 +22,11 @@ class TestController extends Base {
 //        ModelBuilderService::createModel(1001,'', '', true);
 //        $res = BaseService::find('Shop/Apply', ['id' => 1]);
 
-        $res = ServiceBuilerService::createService('申请', 'Apply', true);
+//        $res = ServiceBuilerService::createService('申请', 'Apply', true);
 
+//        var_dump($res);
+
+        $res = ModelBuilderService::fixTablename('apply_user_ruby_on');
         var_dump($res);
     }
 

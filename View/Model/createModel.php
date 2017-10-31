@@ -17,11 +17,11 @@
                             <div class="col-md-6">
                                 <div class="box-body">
                                     <div class="form-group">
-                                        <label for="inputEmail3" class="col-sm-2 control-label">Model英文名称</label>
+                                        <label for="inputEmail3" class="col-sm-2 control-label">Model文件名</label>
 
                                         <div class="col-sm-10">
                                             <input name="modelid" type="hidden" class="form-control" value="{$model['modelid']}">
-                                            <input name="name" type="text" class="form-control" placeholder="英文，首字母大写" value="{:ucfirst($model['tablename'])}">
+                                            <input name="name" type="text" class="form-control" placeholder="英文，首字母大写" value="<?php echo \Devtool\Service\ModelBuilderService::fixTablename($model['tablename'])?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
