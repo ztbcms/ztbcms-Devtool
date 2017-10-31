@@ -26,5 +26,10 @@ return array(
 	//签名
 	'sign' => 'd98e19e9a5eb746f5c5fe5309b3c806e',
 	//依赖模块
+    /**
+     *  依赖：
+        "nikic/php-parser": "^3.1",
+        "phpdocumentor/reflection-docblock": "^4.1"
+     */
 	'depend' => array(),
 );
