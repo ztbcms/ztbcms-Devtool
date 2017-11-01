@@ -32,7 +32,7 @@ class {{model_name}}Service extends BaseService {
      * @param bool   $isRelation
      * @return array
      */
-    function get{{model_name}}List($where = [], $order = '', $page = 1, $limit = 20, $isRelation = false) {
+    static function get{{model_name}}List($where = [], $order = '', $page = 1, $limit = 20, $isRelation = false) {
         return self::select('{{model_name}}', $where, $order, $page, $limit, $isRelation);
     }
 
