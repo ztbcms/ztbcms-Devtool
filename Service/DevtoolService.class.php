@@ -6,7 +6,8 @@
 
 namespace Devtool\Service;
 
-use Shop\Service\BaseService;
+use System\Service\BaseService;
+
 
 /**
  * 开发工具基类
