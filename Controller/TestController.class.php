@@ -8,6 +8,7 @@ namespace Devtool\Controller;
 
 use Common\Controller\Base;
 use Devtool\Service\BehaviorBuilderService;
+use Devtool\Service\ClassifyObjectService;
 use Devtool\Service\ModelBuilderService;
 use Devtool\Service\ServiceBuilerService;
 use Devtool\Service\ServicePreviewService;
@@ -42,6 +43,14 @@ class TestController extends Base {
 
 
     }
+
+    function classfiyObject(){
+        $properties = ClassifyObjectService::getAllProperties('Devtool\Form\AdminForm');
+
+        dump($properties);
+        exit();
+    }
+
 
 
 }
