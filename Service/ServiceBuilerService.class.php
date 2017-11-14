@@ -21,7 +21,8 @@ class ServiceBuilerService extends DevtoolService {
 
         $vars = [
             'service_title' => $service_title,
-            'model_name' => $model_name
+            'model_name' => $model_name,
+            'create_date' => date('Y-m-d H:i:s')
         ];
 
         if ($force_create | !file_exists($targetFileBehavior)) {

@@ -2,6 +2,7 @@
 
 /**
  * author: Devtool
+ * created: {{create_date}}
  */
 
 namespace System\Model;

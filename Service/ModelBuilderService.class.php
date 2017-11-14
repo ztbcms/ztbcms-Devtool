@@ -42,7 +42,8 @@ class ModelBuilderService extends DevtoolService {
             'model_description' => $model['description'],
             'name' => $name,
             'tableName' => $tableName,
-            'enable_fields' => join(',', $enable_fields)
+            'enable_fields' => join(',', $enable_fields),
+            'create_date' => date('Y-m-d H:i:s')
         ];
 
         $templateFile = APP_PATH . 'Devtool' . DIRECTORY_SEPARATOR . 'Data' . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'TplModel.tpl';
