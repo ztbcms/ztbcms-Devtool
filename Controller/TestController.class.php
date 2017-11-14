@@ -14,6 +14,8 @@ use Devtool\Service\ServiceBuilerService;
 use Devtool\Service\ServicePreviewService;
 use PhpParser\Error;
 use PhpParser\ParserFactory;
+use System\Model\ApplyUserModel;
+use System\Service\ApplyUserService;
 use System\Service\BaseService;
 
 class TestController extends Base {
@@ -49,6 +51,11 @@ class TestController extends Base {
 
         dump($properties);
         exit();
+    }
+
+    function testService(){
+        $result = ApplyUserService::getApplyUserList();
+        dump($result);
     }
 
 
