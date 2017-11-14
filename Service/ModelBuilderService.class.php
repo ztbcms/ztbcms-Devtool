@@ -32,7 +32,7 @@ class ModelBuilderService extends DevtoolService {
         //筛选出没有禁用的字段
         $enable_fields = [];
         foreach ($model_fields as $index => $field) {
-            if ($field['disabled'] == 0) {
+            if ($field['disabled'] == 0 && $field['issystem'] == 1) {
                 $enable_fields[] = $field['field'];
             }
         }
