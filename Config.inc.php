@@ -22,7 +22,7 @@ return array(
 	//版本号，请不要带除数字外的其他字符
 	'version' => '0.1.0.2',
 	//适配最低版本，
-	'adaptation' => '3.7.2.9',//v3.7.2.9 内置了Devtool的依赖模块php-parser、reflection-docblock
+	'adaptation' => '3.7.2.10',//v3.7.2.9 内置了Devtool的依赖模块php-parser、reflection-docblock
 	//签名
 	'sign' => 'd98e19e9a5eb746f5c5fe5309b3c806e',
 	//依赖模块
