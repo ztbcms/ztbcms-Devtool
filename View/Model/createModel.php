@@ -29,6 +29,7 @@
 
                                         <div class="col-sm-10">
                                             <input name="tableName" type="text" class="form-control" value="{$model['tablename']}">
+                                            <p><span style="color: red;">*</span>请保证表中含有id字段</p>
                                         </div>
                                     </div>
 
