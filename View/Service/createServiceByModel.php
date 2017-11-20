@@ -28,7 +28,7 @@
                                         <label class="col-sm-2 control-label">Service描述</label>
 
                                         <div class="col-sm-10">
-                                            <input name="service_name" type="text" class="form-control" value="{$model['name']}">
+                                            <input name="service_title" type="text" class="form-control" value="{$model['name']}">
                                         </div>
                                     </div>
 
