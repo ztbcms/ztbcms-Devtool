@@ -27,7 +27,14 @@ class {{name}}Model extends BaseRelationModel {
      * 格式： username,id,age
      */
     function _getEnableFields(){
-        return self::ENABLE_FIELDS;
+        $modelid = M('model')->where(['tablename' => $this->tableName])->getField('modelid');
+        $field_arr = M('model_field')->where(['modelid' => $modelid, 'issystem' => 1, 'disabled' => 0])->getField('field', true);
+        if($field_arr){
+            $field_str = implode(',', $field_arr);
+        }else{
+            $field_str = '*';
+        }
+        return $field_str;
     }
 
 }
