@@ -31,6 +31,7 @@ class {{name}}Model extends BaseRelationModel {
         $field_arr = M('model_field')->where(['modelid' => $modelid, 'issystem' => 1, 'disabled' => 0])->getField('field', true);
         if($field_arr){
             $field_str = implode(',', $field_arr);
+            $field_str .= ',id';
         }else{
             $field_str = '*';
         }
